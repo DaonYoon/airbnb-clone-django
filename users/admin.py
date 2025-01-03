@@ -7,4 +7,10 @@ from .models import User
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
-    pass
+    #   fieldsets = None
+    #  fields = ("email", "password", "name")
+    fieldsets = (
+        ("Profile", {"fields": ("username", "password", "name", "email", "is_host")}),
+    )
+    
+    list_display = ("username", "email", "name", "is_host")
